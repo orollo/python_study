@@ -41,5 +41,8 @@ initDataCont.id = c_uint(9)
 initDataCont.data = pointer(initData)
 
 
+functype = CFUNCTYPE(c_void_p)
+func = functype(driverFuncList.drvcomm_Open)
+func(pointer(initData))
 
 ret = lib.dev_Create(byref(initDataCont))
